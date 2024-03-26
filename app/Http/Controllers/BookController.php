@@ -96,4 +96,7 @@ class BookController extends Controller
         return redirect('/books')
             ->with('success', 'Book deleted successfully');
     }
+
+
+
 }
