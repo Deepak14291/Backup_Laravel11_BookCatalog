@@ -29,6 +29,7 @@
         <td>{{$book->book_author}}</td>
         <td>{{$book->book_genre}}</td>
         <td><a href="{{route('books.edit',['book'=>$book->id])}}"><button>Update</button></a></td>
+       
         <td><form action="{{route('books.destroy',['book'=>$book->id])}}" method="post">
         @csrf
         @method('DELETE')

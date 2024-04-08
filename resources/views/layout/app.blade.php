@@ -22,9 +22,9 @@
 
 <body>
     <h2> Laravel 11 Web Application: Book Catalog</h2>
-   
     @if (session()->has('success'))
-        <div>{{ session('success') }}</div>
+    <br>
+        <div style="color: green">{{ session('success') }}</div>
     @endif
 
     @yield('title') 

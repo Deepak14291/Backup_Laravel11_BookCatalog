@@ -2,11 +2,22 @@
 
 @section('content')
     <h3>Add a new book to the catalog</h3>
+
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+    <li>
+        {{$error}}
+    </li>
+    <br>
+    @endforeach
+    <br>
+    @endif
+
     <form action="{{route('books.store')}}" method="post">
         @csrf
         <div>
             <label for="book_name">Book Name</label>
-            <input type="text" name="book_name" id="book_name">
+            <input type="text" name="book_name" id="book_name" >
         </div>
         <br>
         <div>
@@ -20,7 +31,7 @@
         </div>
         <br>
         <div>
-            <button>Save</button>
+            <button>Add</button>
         </div>
         <br>
     </form>

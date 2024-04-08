@@ -3,6 +3,16 @@
 @section('content')
 
 <h3>Update Book</h3>
+
+@if ($errors->any())
+@foreach ($errors->all() as $error)
+<li style="color: red">
+    {{$error}}
+</li>
+@endforeach
+<br>
+@endif
+
     <form action="{{route('books.update',['book'=>$books->id])}}" method="post">
         @csrf
         @method('PUT')

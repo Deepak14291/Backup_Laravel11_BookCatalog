@@ -4,21 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display list of books on the home page.
      */
     public function index()
     {
+
+        $books = DB::table('books')->get();
+
         return view('index', [
-            'books' => Book::all()
+            'books' => $books
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new book resource.
      */
     public function create()
     {
@@ -26,7 +30,7 @@ class BookController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created book resource in storage.
      */
     public function store(Request $request)
     {
@@ -86,7 +90,7 @@ class BookController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified book resource from storage.
      */
     public function destroy(string $id)
     {
